@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Demo1.Models.EF.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Quản lý thông tin nhân viên</h2>
+<div>
+    <input type="text" id="searchStr" placeholder="Nhập thông tin tìm kiếm" />
+</div>
+<div class="row">
+    <div class="col-md-3"><label>Tên</label><input class="form-control" type="text" id="fullName" /></div>
+    <div class="col-md-2"><label>Ngày sinh</label><input class="form-control" type="date" id="dateOfBirth" value="1997-02-01" /></div>
+    <div  class="col-md-3" ><label>Quê quán</label><input class="form-control" type="text" id="country" /></div>
+    <div class="col-md-2"><label>Dân tộc</label>@Html.DropDownList("folk", (IEnumerable<SelectListItem>)ViewBag.folks, new { @id = "folk", @class = "form-control" })</div>
+    <div class="col-md-2"><label>Lớp</label>@Html.DropDownList("className", (IEnumerable<SelectListItem>)ViewBag.classes, new { @id = "className", @class = "form-control" })</div>
+</div>
+<br />
+
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="col-md-4 text-center"><button class="btn-info" id="btnCreate">Thêm mới</button></div>
+        <div class="col-md-4 text-center"><button class="btn-success" id="btnSend" style="visibility:hidden">Gửi</button></div>
+        <div class="col-md-4 text-center"><button class="btn-danger" id="btnCancel" style="visibility:hidden">Hủy</button></div>
+    </div>
+    <br />
+    <br />
+<table class="table table-bordered table-responsive">
+    <tr>
+        <th class="text-center">
+            Họ tên
+        </th>
+        <th class="text-center">
+            Ngày sinh
+        </th>
+        <th class="text-center">
+            Quê quán
+        </th>
+        <th class="text-center">
+            Dân tộc
+        </th>
+        <th class="text-center">
+            Lớp
+        </th>
+        <th class="text-center">
+            Thao tác
+        </th>
+    </tr>
+    <tbody id="tbody">
+
+    </tbody>
+
+</table>
+<script src="~/Scripts/MyJS/Index.js"></script>
+
